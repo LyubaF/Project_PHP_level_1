@@ -3,7 +3,7 @@ include ('includes/header.php')
 ?>
 
 	<body>
-		<h4><p class="pcolumn">Diana is planning to go to a party this weekend! She wants to show up looking fresh, so she decided to buy a new dress. She is very conscious of the color of her future dress and she really wants something more green than red or blue.</p></h4>
+		<h4><p class="pcolumn">Диана планира да отиде на парти този уикенд! Иска да се изфука с нов вид, така че решава да си купи нова рокля. Тя е много капризна по отношение на цвета на бъдещата си рокля и наистина иска такава, която е повече зелена, отколкото синя или червена. В магазина има няколко рокли в съответния цвят. За да разберете как Диана търси тези рокли, в които има повече зелено, отколкото синьо или червено, въведете RGB код в полетата.</p></h4>
 		<div>
   			<button class="button" onclick="location.href='dresses.php'">ВХОД</button>
   		</div>	
