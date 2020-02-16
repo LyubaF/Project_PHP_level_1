@@ -1,41 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title></title>
-</head>
+<?php
+include ('includes/header.php')
+?>
+
 <body>
-	<div>
-		<br>
-		<img src="./img/01.jpg" style="float: left; width: 250px">
-		<?php
-			if (diana_color_check($_POST['color1'])) {
-				echo "Yes, this is my dress!";
-			} else {
-				echo "No, I cant`t choose a dress...";
-				}
-			?>
-	</div>
-		<div>
-			<img src="./img/02.jpg" style="float: left; width: 250px">
+	<button class="butonHome" onclick="location.href='index.php'">Начало</button>
+		<div class="div">
+			<b>Dress color - 1 (RGB):</b>
 			<?php
-			if (diana_color_check($_POST['color2'])) {
-				echo "Yes, this is my dress!";
-			} else {
-				echo "No, I cant`t choose a dress...";
-				}
+				check_color($_POST['color1']);
 			?>
 		</div>
-		<div>
-			<img src="./img/03.jpg" style="float: left; width: 250px">
+		<div class="div">
+			<b>Dress color - 2 (RGB):</b>
 			<?php
-			if (diana_color_check($_POST['color3'])) {
-				echo "Yes, this is my dress!";
-			} else {
-				echo "No, I cant`t choose a dress...";
-				}
+				check_color($_POST['color2']);
 			?>
 		</div>
+		<div class="div">
+			<b>Dress color - 3 (RGB):</b>
+			<?php
+				check_color($_POST['color3']);
+			?>
+		</div>
+  	<button class="button" onclick="location.href='dresses.php'">Обратно</button>
 <?php
 
 function diana_color_check($color) {
@@ -43,14 +30,29 @@ function diana_color_check($color) {
 	$greenValue = intval(substr($color, 2, 2), 16);
 	$blueValue = intval(substr($color, 4, 2), 16);
 
-	if (($greenValue > $redValue) && ($greenValue > $blueValue)) {
-		return TRUE;
-	} else {
-		return FALSE;
-	} 
+	return (($greenValue > $redValue) && ($greenValue > $blueValue));
+	
 }
 
-?>
-</body>
-</html>
+function is_correct_RGB($value) {
+	return ((ctype_xdigit($value) && (strlen($value)) == 6));
+}
 
+function check_color($color) {
+	if (is_correct_RGB($color)) {
+		if (diana_color_check($color)) {
+			echo "<b>Yes, this is my dress!</b>";
+			echo "<img src='./img/04.png'>";
+		} else {
+			echo "<b>No, I cant`t choose that dress</b>";
+			echo "<img src='./img/05.png'>";
+		}
+	} else {
+			echo "<b>Incorrect RGB value</b>";
+		}
+	}
+?>
+
+<?php
+include ('includes/footer.php');
+?>	
